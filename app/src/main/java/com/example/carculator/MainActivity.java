@@ -31,13 +31,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                  try{
-                     //int v1 = et.Integer.parseInt();
-                     int v1 = Integer.parseInt(String.valueOf(et.getText()));
-                    //Toast.makeText(getApplicationContext(), String.valueOf(v1), Toast.LENGTH_LONG).show();
+                    int v1 = Integer.parseInt(String.valueOf(et.getText()));
                     int v2 = Integer.parseInt(String.valueOf(et2.getText()));
-                    //Toast.makeText(getApplicationContext(), String.valueOf(v2), Toast.LENGTH_LONG).show();
                     float sum = v1 + v2;
-                    //textView.setText(toString(sum));
                     textView.setText(String.valueOf(sum));
 
                 }catch(NumberFormatException Exception){
@@ -82,10 +78,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                  try{
-                    double v1 = Integer.parseInt(String.valueOf(et.getText()));
-                    double v2 = Integer.parseInt(String.valueOf(et2.getText()));
-                    double sum = (v1 / v2);
-                    textView.setText(String.valueOf(sum));
+                    int v1 = Integer.parseInt(String.valueOf(et.getText()));
+                    int v2 = Integer.parseInt(String.valueOf(et2.getText()));
+                    if (v2==0){
+                        Toast.makeText(getApplicationContext(), "0으로 나눌 수 없습니다", Toast.LENGTH_LONG).show();
+                    }
+                    else {
+                        double sum = (v1 * 1.0 / v2 * 1.0);
+                        textView.setText(String.valueOf(sum));
+                    }
                 }
                  catch (ArithmeticException e){
                      Toast.makeText(getApplicationContext(), "0으로 나눌 수 없습니다", Toast.LENGTH_LONG).show();
@@ -95,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
                  }
             }
         });
-
     }
 }
 
